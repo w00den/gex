@@ -1,0 +1,7 @@
+coverage/**
+node_modules/**
+app/dist/**
+app/node_modules/**
+dist/**
+*.spec.js
+src/index.html

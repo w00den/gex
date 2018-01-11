@@ -1,0 +1,151 @@
+{
+  "name": "gex",
+  "version": "0.0.1",
+  "description": "gex",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w00den/gex.git"
+  },
+  "bin": {
+    "electron": "./node_modules/.bin/electron"
+  },
+  "scripts": {
+    "clean": "rimraf dist && rimraf app",
+    "compile": "babel-node build/scripts/compile",
+    "compile-electron": "babel -d app/dist/electron electron",
+    "compile:dev": "cross-env NODE_ENV=development npm run compile-prepare && cross-env NODE_ENV=development npm run compile",
+    "compile:prod": "cross-env NODE_ENV=production npm run compile-prepare && cross-env NODE_ENV=production npm run compile",
+    "compile-prepare": "babel-node build/scripts/build-config && install-app-deps",
+    "dist": "npm run compile:prod && build --publish never",
+    "dist:linux": "npm run compile:prod && build --linux --publish never",
+    "dist:mac": "npm run compile:prod && build --mac",
+    "dist:win32": "npm run compile:prod && build --win",
+    "start": "cross-env NODE_ENV=development babel-node build/scripts/start",
+    "start-app": "cross-env NODE_ENV=development babel-node build/scripts/run-electron && cross-env NODE_ENV=development npm start",
+    "test": "cross-env NODE_ENV=test babel-node ./node_modules/karma/bin/karma start build/karma.config",
+    "test:watch": "npm test -- --watch",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w00den/gex.git"
+  },
+  "build": {
+    "productName": "GEX",
+    "appId": "test.test.test",
+    "win": {
+      "icon": "public/assets/icons/win/icon.ico"
+    },
+    "mac": {
+      "category": "test.test.test",
+      "icon": "public/assets/icons/mac/icon.icns"
+    },
+    "linux": {
+      "icon": "public/assets/icons/png"
+    },
+    "files": [
+      "**/*",
+      "dist/**/*"
+    ],
+    "asar": true
+  },
+  "contributors": [
+    {
+      "name": "David Zukowski",
+      "email": "david@zuko.me"
+    },
+    {
+      "name": "kr1ck",
+      "email": "apache3dk@gmail.com"
+    }
+  ],
+  "author": "w00den <w00den@protonmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w00den/gex/issues"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "history": "^4.7.2",
+    "object-assign": "^4.1.1",
+    "promise": "^8.0.1",
+    "prop-types": "^15.5.10",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "redbox-react": "^1.3.6",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.20.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-enzyme": "^1.0.0-beta.0",
+    "chalk": "^2.3.0",
+    "cheerio": "^1.0.0-rc.2",
+    "codecov": "^3.0.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.1",
+    "dirty-chai": "^2.0.1",
+    "electron-builder": "^19.52.1",
+    "electron-prebuilt": "^1.4.13",
+    "enzyme": "^3.3.0",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "figures": "^2.0.0",
+    "file-loader": "^1.1.6",
+    "fs-extra": "^5.0.0",
+    "html-webpack-plugin": "^2.24.1",
+    "jsonfile": "^4.0.0",
+    "karma": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack-with-fast-source-maps": "^1.10.0",
+    "mocha": "^4.1.0",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.5.3",
+    "opn": "^5.1.0",
+    "phantomjs-prebuilt": "^2.1.14",
+    "react-test-renderer": "^16.2.0",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.5",
+    "sinon": "^4.1.4",
+    "sinon-chai": "^2.10.0",
+    "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-hot-middleware": "^2.13.2",
+    "yargs": "^10.1.1"
+  }
+}

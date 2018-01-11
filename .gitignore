@@ -1,0 +1,16 @@
+.DS_STORE
+*.log
+pids
+*.pid
+*.seed
+node_modules
+dist
+app
+coverage
+.idea/
+.yarn-cache
+
+# Coverage for Electron tests
+coverage-electron
+instrumented
+report-electron

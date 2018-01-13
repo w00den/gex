@@ -59,6 +59,7 @@ rules:
     - 2
     -
       extra-properties:
+        - 'user-drag'
         - 'touch-callout'
         - 'composes'
         - 'overflow-scrolling'

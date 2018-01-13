@@ -20,7 +20,7 @@ export class Counter extends React.Component {
 
   render () {
     return (
-      <div style={{ margin: '0 auto' }} >
+      <div style={{ margin: '5rem auto' }} className='text-center'>
         <h2>
           <span className='counter-text'>
             Sample Counter:

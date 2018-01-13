@@ -6,7 +6,7 @@ class HomeView extends Component {
   render = () => {
     return (
       <div>
-        <h4>Welcome!</h4>
+        <h1>Welcome!</h1>
         <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
       </div>
 

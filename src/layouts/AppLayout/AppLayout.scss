@@ -1,0 +1,53 @@
+// sass-lint:disable no-vendor-prefixes
+
+.app {
+  height: 100%;
+  // font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: rgb(226, 226, 226);
+  background-color: rgb(62, 55, 77);
+
+  * {
+    cursor: default;
+    user-select: none; /* Non-prefixed version, currently */
+  }
+
+  img {
+    -webkit-user-drag: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: Comfortaa;
+  }
+
+  .app-container {
+    padding: 1rem;
+
+    .app-layout--viewport {
+      width: 100%;
+    }
+  }
+
+  .app-footer-node {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3rem;
+    background-color: #302a3c;
+    box-shadow: 0 3px 10px 5px rgb(210, 11, 103);
+  }
+
+  .app-footer-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    font-family: Play;
+    font-weight: 100;
+    transform: translate(-50%, -50%);
+  }
+}

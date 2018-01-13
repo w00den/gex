@@ -91,7 +91,7 @@ config.module.rules.push({
 // ------------------------------------
 const extractStyles = new ExtractTextPlugin({
   // filename: __DEV__ ? 'styles/[name].css' : 'styles/[name].[chunkhash].css',
-  filename: 'styles/[name].css',
+  filename: '[name].css',
   allChunks: true,
   disable: __DEV__,
 })
@@ -160,13 +160,16 @@ config.module.rules.push({
   const mimetype = font[1]
 
   config.module.rules.push({
-    test    : new RegExp(`\\.${extension}$`),
-    loader  : 'url-loader',
-    options : {
-      name  : 'fonts/[name].[ext]',
-      limit : 10000,
-      mimetype,
-    },
+    test: new RegExp(`\\.${extension}$`),
+    use: [{
+      loader: 'url-loader',
+      options : {
+        name  : 'assets/fonts/[name].[ext]',
+        limit : 10000,
+        mimetype
+      }
+    }
+    ]
   })
 })
 

@@ -28,10 +28,6 @@
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/w00den/gex.git"
-  },
   "build": {
     "productName": "GEX",
     "appId": "test.test.test",
@@ -104,6 +100,7 @@
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.0.0",
     "connect-history-api-fallback": "^1.3.0",
+    "coveralls": "^3.0.0",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.1",
     "dirty-chai": "^2.0.1",

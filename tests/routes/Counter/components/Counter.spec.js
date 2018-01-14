@@ -47,8 +47,8 @@ describe('(Component) Counter', () => {
       expect(_button).to.exist()
     })
 
-    it('is a primary button', () => {
-      expect(_button.hasClass('btn btn-primary')).to.be.true()
+    it('is a default button', () => {
+      expect(_button.hasClass('btn btn-default')).to.be.true()
     })
 
     it('Calls props.increment when clicked', () => {
@@ -72,8 +72,8 @@ describe('(Component) Counter', () => {
       expect(_button).to.exist()
     })
 
-    it('is a secondary button', () => {
-      expect(_button.hasClass('btn btn-secondary')).to.be.true()
+    it('is a primary button', () => {
+      expect(_button.hasClass('btn btn-primary')).to.be.true()
     })
 
     it('Calls props.doubleAsync when clicked', () => {

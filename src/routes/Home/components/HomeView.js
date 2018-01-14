@@ -9,7 +9,6 @@ class HomeView extends Component {
         <h1>Welcome!</h1>
         <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
       </div>
-
     )
   }
 }

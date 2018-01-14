@@ -18,7 +18,7 @@ export class Counter extends React.Component {
     increment: PropTypes.func.isRequired
   };
 
-  render () {
+  render = () => {
     return (
       <div style={{ margin: '5rem auto' }} className='text-center'>
         <h2>

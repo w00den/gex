@@ -24,9 +24,9 @@ describe('(Internal Module) Location', () => {
       let state = locationReducer(undefined, {})
       expect(state).to.be.an('object')
       expect(state).to.have.property('pathname')
-      expect(state).to.have.property('pathname', '/context.html')
+      expect(state).to.have.property('pathname', '/')
       state = locationReducer(state, { type: '@@@@@@@' })
-      expect(state).to.have.property('pathname', '/context.html')
+      expect(state).to.have.property('pathname', '/')
 
       const locationState = { pathname: '/yup' }
       state = locationReducer(state, locationChange(locationState))

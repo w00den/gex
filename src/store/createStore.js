@@ -2,8 +2,9 @@ import { applyMiddleware, compose, createStore as createReduxStore } from 'redux
 import thunk from 'redux-thunk'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
+import { createHashHistory } from 'history'
 
-const createStore = (initialState = {}, browserHistory) => {
+const createStore = (initialState = {}, browserHistory = createHashHistory({})) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================

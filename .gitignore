@@ -1,4 +1,5 @@
 .DS_STORE
+._*
 *.log
 pids
 *.pid
@@ -7,6 +8,7 @@ node_modules
 dist
 app
 coverage
+src/utils/serverExports.js
 .idea/
 .yarn-cache
 

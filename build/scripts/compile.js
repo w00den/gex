@@ -3,6 +3,7 @@ import path from 'path'
 import chalk from 'chalk'
 import webpack from 'webpack'
 import logger from '../lib/logger'
+import runscripts from '../lib/runscripts'
 import webpackConfig from '../webpack.config'
 import project from '../../project.config'
 
@@ -28,6 +29,8 @@ const runWebpackCompiler = (webpackConfig) =>
   })
 
 const compile = () => Promise.resolve()
+  .then(() => logger.info('Running scripts...'))
+  .then(() => runscripts.run())
   .then(() => logger.info('Starting compiler...'))
   .then(() => logger.info('Target application environment: ' + chalk.bold(project.env)))
   .then(() => runWebpackCompiler(webpackConfig))

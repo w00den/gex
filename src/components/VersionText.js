@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { _package } from 'utils/common'
 
 class VersionText extends Component {
   static propTypes = {
@@ -30,17 +31,17 @@ class VersionText extends Component {
   renderVersion = (text) => {
     return ((text || '').split('')).map((letter, key) => {
       const mod = ~~(360 * (key / text.length)) + this.state.offset
-      return (<span key={key} style={{ color: `hsl(${mod}, 50%, 50%)` }}>{letter}</span>)
+      return (<span key={key} style={{ color: `hsl(${mod}, 40%, 60%)` }}>{letter}</span>)
     })
   }
 
   render = () => {
-    const version = 'closed-alpha-0.0.1q'
+    const version = _package.version
     const { text } = this.props
     return (
       <div>
-        <span>{this.renderVersion(version)}</span>
-        <span>{this.renderVersion(text)}</span>
+        <div>{this.renderVersion(`v${version}`)}</div>
+        <div>{this.renderVersion(text)}</div>
       </div>
     )
   }

@@ -20,6 +20,7 @@ files:
     - 'dist/**'
     - '*.spec.js'
     - 'src/index.html'
+    - 'src/utils/serverExports.js'
 # Rule Configuration
 rules:
   # Extends

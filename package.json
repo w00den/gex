@@ -1,6 +1,6 @@
 {
   "name": "gex",
-  "version": "0.0.1",
+  "version": "0.0.174",
   "description": "gex",
   "main": "main.js",
   "repository": {
@@ -67,6 +67,8 @@
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "history": "^4.7.2",
+    "marsdb": "^0.6.11",
+    "marsdb-localforage": "^0.1.0",
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "prop-types": "^15.5.10",

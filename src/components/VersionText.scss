@@ -1,0 +1,58 @@
+:global {
+
+  @mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+      @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+      @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+      @content;
+    }
+    @-o-keyframes #{$animation-name} {
+      @content;
+    }
+    @keyframes #{$animation-name} {
+      @content;
+    }
+  }
+
+  @mixin animation($str) {
+    animation-name: #{$str};
+  }
+
+  @include keyframes(cccolor) {
+    0% { color: hsl(0, 30%, 63%); }
+    10% { color: hsl(36, 30%, 63%); }
+    20% { color: hsl(72, 30%, 63%); }
+    30% { color: hsl(108, 30%, 63%); }
+    40% { color: hsl(144, 30%, 63%); }
+    50% { color: hsl(180, 30%, 63%); }
+    60% { color: hsl(216, 30%, 63%); }
+    70% { color: hsl(252, 30%, 63%); }
+    80% { color: hsl(288, 30%, 63%); }
+    90% { color: hsl(324, 30%, 63%); }
+    100% { color: hsl(0, 30%, 63%); }
+ }
+
+  @include keyframes(fade-in) {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .animated-text {
+    div {
+      @include animation('fade-in');
+      animation-duration: 200ms;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+    }
+
+    span {
+      @include animation('cccolor');
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+}

@@ -1,13 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classes from './Counter.scss'
-import { increment, doubleAsync } from '../modules/counter'
+import { increment, doubleAsync, clear, save, load } from '../modules/counter'
 import { connect } from 'react-redux'
 
 type Props = {
   counter: number,
   doubleAsync: Function,
-  increment: Function
+  increment: Function,
+  clear: Function,
+  save: Function,
+  load: Function,
 };
 
 export class Counter extends React.Component {
@@ -15,8 +18,14 @@ export class Counter extends React.Component {
   static propTypes = {
     counter: PropTypes.number.isRequired,
     doubleAsync: PropTypes.func.isRequired,
-    increment: PropTypes.func.isRequired
+    clear: PropTypes.func.isRequired,
+    save: PropTypes.func.isRequired,
+    load: PropTypes.func.isRequired,
+    increment: PropTypes.func.isRequired,
   };
+  componentWillMount = () => {
+    this.props.load()
+  }
 
   render = () => {
     return (
@@ -35,6 +44,18 @@ export class Counter extends React.Component {
         <button className='btn btn-primary' onClick={this.props.doubleAsync}>
           Double (Async)
         </button>
+        {' '}
+        <button className='btn btn-primary' onClick={this.props.clear}>
+          Clear
+        </button>
+        {' '}
+        <button className='btn btn-primary' onClick={this.props.save}>
+          Save
+        </button>
+        {' '}
+        <button className='btn btn-primary' onClick={this.props.load}>
+          Load
+        </button>
       </div>
     )
   }
@@ -45,5 +66,8 @@ const mapStateToProps = (state) => ({
 })
 export default connect(mapStateToProps, {
   increment: () => increment(1),
-  doubleAsync
+  doubleAsync,
+  clear,
+  save,
+  load
 })(Counter)

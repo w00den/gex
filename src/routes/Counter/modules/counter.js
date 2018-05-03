@@ -38,12 +38,10 @@ export const doubleAsync = () => {
 
 export const save = (e) => {
   return (dispatch, getState) => {
-    // console.log(e.target)
     const value = getState().counter
-    return db.save(value).then((data) => {
+    return db.saveCounter(value).then((data) => {
       dispatch({
         type    : COUNTER_SAVE,
-        payload : value
       })
     })
   }
@@ -51,10 +49,10 @@ export const save = (e) => {
 
 export const load = () => {
   return (dispatch, getState) =>
-    db.get().then((data) => {
+    db.getCounter().then((data) => {
       dispatch({
         type    : COUNTER_LOAD,
-        payload : data.value
+        payload : data ? data.value : 0
       })
     })
 }

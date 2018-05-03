@@ -12,6 +12,7 @@ const __TEST__ = project.env === 'test'
 const __PROD__ = project.env === 'production'
 
 const config = {
+  // target: 'electron-main',
   entry: {
     bundle: [
       inProjectSrc('normalize'),
